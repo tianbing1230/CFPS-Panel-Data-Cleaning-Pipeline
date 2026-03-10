@@ -1,0 +1,21 @@
+{
+  "source": "data_dictionary",
+  "sheets": [
+    {
+      "index": 1,
+      "name": "Individual",
+      "csv_file": "01_individual.csv",
+      "rows": 128,
+      "columns": 6,
+      "header": [
+        "Variable Name",
+        "Variable Label (CHN)",
+        "Variable Label (ENG)",
+        "Value Label (CHN)",
+        "Value Label (ENG)",
+        ""
+      ]
+    }
+  ],
+  "last_updated": "2026-03-10T13:43:00-04:00"
+}

@@ -1,0 +1,23 @@
+# Local config
+config.do
+
+# Stata outputs and temporary files
+*.dta
+*.log
+*.smcl
+*.ster
+*.stpr
+*.tmp
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Optional folders for local outputs
+data/
+output/
+results/
+generated_data/
+ado/third_party/
