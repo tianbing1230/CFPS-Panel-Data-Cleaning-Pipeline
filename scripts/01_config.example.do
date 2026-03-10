@@ -10,4 +10,4 @@ global data_raw "/path/to/cfps_raw_data_root"
 * Recommended: use project-local generated_data/ folder.
 global data_gen "/path/to/project/generated_data"
 
-* Data file-level globals are centralized in 02_paths_globals.do.
+* Data file-level globals are centralized in scripts/02_paths_globals.do.

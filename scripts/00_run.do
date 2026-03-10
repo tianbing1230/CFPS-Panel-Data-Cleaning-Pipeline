@@ -1,18 +1,18 @@
 version 15
 
 * Entry point for CFPS panel cleaning pipeline.
-* 1) Copy 01_config.example.do to config.do and edit paths.
-* 2) Run this file in Stata.
+* 1) Copy scripts/01_config.example.do to scripts/config.do and edit paths.
+* 2) From project root, run do "scripts/00_run.do" in Stata.
 
-capture noisily do "config.do"
+capture noisily do "scripts/config.do"
 if _rc {
-    di as error "Cannot load config.do. Please copy 01_config.example.do to config.do and update paths."
+    di as error "Cannot load scripts/config.do. Please copy scripts/01_config.example.do to scripts/config.do and update paths."
     exit 601
 }
 
-capture noisily do "02_paths_globals.do"
+capture noisily do "scripts/02_paths_globals.do"
 if _rc {
-    di as error "Cannot load 02_paths_globals.do."
+    di as error "Cannot load scripts/02_paths_globals.do."
     exit 602
 }
 
@@ -29,49 +29,49 @@ if _rc {
     exit 604
 }
 
-capture noisily do "11_CFPS_Panel_Ind10.do"
+capture noisily do "scripts/11_CFPS_Panel_Ind10.do"
 if _rc {
     di as error "Failed in 11_CFPS_Panel_Ind10.do"
     exit 610
 }
 
-capture noisily do "13_CFPS_Panel_Ind12.do"
+capture noisily do "scripts/13_CFPS_Panel_Ind12.do"
 if _rc {
     di as error "Failed in 13_CFPS_Panel_Ind12.do"
     exit 611
 }
 
-capture noisily do "14_CFPS_Panel_Ind14.do"
+capture noisily do "scripts/14_CFPS_Panel_Ind14.do"
 if _rc {
     di as error "Failed in 14_CFPS_Panel_Ind14.do"
     exit 612
 }
 
-capture noisily do "15_CFPS_Panel_Ind16.do"
+capture noisily do "scripts/15_CFPS_Panel_Ind16.do"
 if _rc {
     di as error "Failed in 15_CFPS_Panel_Ind16.do"
     exit 613
 }
 
-capture noisily do "16_CFPS_Panel_Ind18.do"
+capture noisily do "scripts/16_CFPS_Panel_Ind18.do"
 if _rc {
     di as error "Failed in 16_CFPS_Panel_Ind18.do"
     exit 614
 }
 
-capture noisily do "17_CFPS_Panel_Ind20.do"
+capture noisily do "scripts/17_CFPS_Panel_Ind20.do"
 if _rc {
     di as error "Failed in 17_CFPS_Panel_Ind20.do"
     exit 615
 }
 
-capture noisily do "20_CFPS_Panel_Individual_Crosswave.do"
+capture noisily do "scripts/20_CFPS_Panel_Individual_Crosswave.do"
 if _rc {
     di as error "Failed in 20_CFPS_Panel_Individual_Crosswave.do"
     exit 616
 }
 
-capture noisily do "30_CFPS_Panel_Individual_Labels.do"
+capture noisily do "scripts/30_CFPS_Panel_Individual_Labels.do"
 if _rc {
     di as error "Failed in 30_CFPS_Panel_Individual_Labels.do"
     exit 617

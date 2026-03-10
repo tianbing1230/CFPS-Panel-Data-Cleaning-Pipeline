@@ -11,13 +11,13 @@ version 15
 	capture clear all
 	set more off
 
-	* Path config should be loaded by 00_run.do via config.do.
+	* Path config should be loaded by scripts/00_run.do via scripts/config.do.
 	* Fallback defaults only for safer standalone execution.
 	if "$data_gen" == "" {
 		global data_gen "`c(pwd)'"
 	}
 	if "$data_raw" == "" {
-		di as error "Global macro data_raw is not set. Please copy 01_config.example.do to config.do and edit paths."
+		di as error "Global macro data_raw is not set. Please copy scripts/01_config.example.do to scripts/config.do and edit paths."
 		exit 198
 	}
 	cap mkdir "$data_gen"

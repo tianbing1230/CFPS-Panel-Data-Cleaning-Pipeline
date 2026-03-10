@@ -5,12 +5,13 @@ Stata workflow for cleaning and harmonizing CFPS multi-wave individual data into
 ## What This Repository Contains
 
 - Stata cleaning scripts (`.do`)
+  - located in `scripts/`
 - Stata helper programs (`.ado`)
   - local: `ado/local/`
   - third-party local-only: `ado/third_party/` (gitignored by default for internal testing)
-- Run entrypoint: `00_run.do`
-- Path template: `01_config.example.do`
-- File map globals: `02_paths_globals.do`
+- Run entrypoint: `scripts/00_run.do`
+- Path template: `scripts/01_config.example.do`
+- File map globals: `scripts/02_paths_globals.do`
 
 ## What This Repository Does NOT Contain
 
@@ -21,12 +22,12 @@ Stata workflow for cleaning and harmonizing CFPS multi-wave individual data into
 ## Quick Start
 
 1. Prepare CFPS raw data locally (according to your data-use permission).
-2. Copy `01_config.example.do` to `config.do`.
-3. Edit `config.do`:
+2. Copy `scripts/01_config.example.do` to `scripts/config.do`.
+3. Edit `scripts/config.do`:
    - `global data_raw`: CFPS raw data root folder
    - `global data_gen`: output folder for cleaned files (recommended: `generated_data/`)
-4. Check `02_paths_globals.do` and adjust file names if your local raw-file versions differ.
-5. Run `00_run.do` in Stata.
+4. Check `scripts/02_paths_globals.do` and adjust file names if your local raw-file versions differ.
+5. From project root, run `do "scripts/00_run.do"` in Stata.
 
 ## Expected Main Outputs
 
@@ -50,10 +51,10 @@ By default recommendation, these generated files are stored under `generated_dat
 
 ## Notes
 
-- `00_run.do` runs the full individual-level pipeline in sequence: `11_CFPS_Panel_Ind10.do` -> `13_CFPS_Panel_Ind12.do` -> `14_CFPS_Panel_Ind14.do` -> `15_CFPS_Panel_Ind16.do` -> `16_CFPS_Panel_Ind18.do` -> `17_CFPS_Panel_Ind20.do` -> `20_CFPS_Panel_Individual_Crosswave.do` -> `30_CFPS_Panel_Individual_Labels.do`.
-- Recommended entrypoint for current workflow: `00_run.do`.
+- `scripts/00_run.do` runs the full individual-level pipeline in sequence: `scripts/11_CFPS_Panel_Ind10.do` -> `scripts/13_CFPS_Panel_Ind12.do` -> `scripts/14_CFPS_Panel_Ind14.do` -> `scripts/15_CFPS_Panel_Ind16.do` -> `scripts/16_CFPS_Panel_Ind18.do` -> `scripts/17_CFPS_Panel_Ind20.do` -> `scripts/20_CFPS_Panel_Individual_Crosswave.do` -> `scripts/30_CFPS_Panel_Individual_Labels.do`.
+- Recommended entrypoint for current workflow: `scripts/00_run.do`.
 - Third-party local notice file is stored at `ado/third_party/THIRD_PARTY_NOTICES.local.md` (not uploaded by default).
-- `00_run.do` checks for required third-party dependency (`iskoisei`) and will stop with guidance if missing.
+- `scripts/00_run.do` checks for required third-party dependency (`iskoisei`) and will stop with guidance if missing.
 
 ## Core Cleaning Logic
 
